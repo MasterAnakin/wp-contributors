@@ -1,7 +1,7 @@
 <?php
 /**
  *Plugin Name:  Contributors plugin
- *Description:  Allows user to add coauthors
+ *Description:  Allows user to add contributors to posts
  *Plugin URI:   https://mmilosevic.com
  *Author:       Milos Milosevic
  *Version:      1.0
@@ -11,11 +11,10 @@
  *License URI:  https://www.gnu.org/licenses/gpl-2.0.txt
 */
 
-
-/**
- * Register a meta box using a class.
- */
-
 include "includes/class-custom-meta.php";
 include "includes/class-show-contributors-after-content.php";
 
+function my_enqueued_assets() {
+    wp_enqueue_style( 'wp-contributors-css', plugin_dir_url(__FILE__) . '/public/css/style.css', '' );
+}
+add_action('wp_enqueue_scripts', 'my_enqueued_assets');

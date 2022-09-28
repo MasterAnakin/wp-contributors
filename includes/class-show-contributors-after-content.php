@@ -8,11 +8,11 @@ class Show_Contributors_After_Content {
         global $post;
         $contributors_arr = get_post_meta( $post->ID, 'contributors-array', true );
         if ( $contributors_arr != null ){
-            $content .= '<h3>Contributors</h3>';
+            $content .= '<h3 class="h3-contributors">' . __( "Contributors", "contributors" ) .'</h3>';
             foreach ( $contributors_arr as $single_con ){
                 $single_contributor = get_user_by( 'id', $single_con );
                 $gravatar = get_avatar( $single_con );
-                $content .= '<p>' . $gravatar . '<br /><a href="' . get_author_posts_url( $single_con ) . '">' . $single_contributor->user_login  . '</a></p>';
+                $content .= '<div class="wp-contributors">' . $gravatar . '<br /><a href="' . get_author_posts_url( $single_con ) . '">' . $single_contributor->user_login  . '</a></div>';
             }
         }
 

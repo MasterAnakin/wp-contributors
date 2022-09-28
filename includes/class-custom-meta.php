@@ -42,9 +42,10 @@ class Contributors_Custom_Meta_Box {
 	public function render_metabox( $post ) {
 		//Check post meta array with list users array and marked checked ones as checked.
 		$contributors_arr = get_post_meta( $post->ID, 'contributors-array' );
+		$contributors_arr_sub_lvl = $contributors_arr[0] ?? null;
 		$list_all_users_for_dropdown = get_users( array( 'role__in' => array( 'author', 'editor', 'administrator', ) ) );
 		foreach ( $list_all_users_for_dropdown as $single_user_for_dropdown ) {
-			if ( $contributors_arr[0] != null && in_array( $single_user_for_dropdown->ID, $contributors_arr[0]) ) { $checked = 'checked="checked"';} else {$checked = '';}	
+			if ( $contributors_arr_sub_lvl != null && in_array( $single_user_for_dropdown->ID, $contributors_arr_sub_lvl ) ) { $checked = 'checked="checked"';} else {$checked = '';}	
 		?>
 			<input type="checkbox" id="<?php echo esc_html( $single_user_for_dropdown->user_login ); ?>" name="co-author[]" value="<?php echo  $single_user_for_dropdown->ID; ?>" <?php echo $checked;?>>
 			<label for="<?php echo esc_html( $single_user_for_dropdown->user_login ); ?>"> <?php echo esc_html( $single_user_for_dropdown->display_name ); ?></label><br>	

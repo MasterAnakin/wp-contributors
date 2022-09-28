@@ -1,0 +1,11 @@
+/*
+*Styling for WP Contributors plugin
+*/
+
+h3.h3-contributors {
+    text-align: center;
+}
+
+.wp-contributors {
+    text-align: center;
+}
