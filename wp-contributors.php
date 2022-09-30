@@ -11,8 +11,8 @@
  *License URI:  https://www.gnu.org/licenses/gpl-2.0.txt
 */
 
-include "includes/class-custom-meta.php";
-include "includes/class-show-contributors-after-content.php";
+include_once "includes/class-contributors-custom-meta.php";
+include_once "includes/class-show-contributors-after-content.php";
 
 function my_enqueued_assets() {
     wp_enqueue_style( 'wp-contributors-css', plugin_dir_url(__FILE__) . '/public/css/style.css', '' );

@@ -6,11 +6,10 @@ class Contributors_Custom_Meta_Box {
 	 * Constructor.
 	 */
 	public function __construct() {
-		if ( is_admin() ) {
+		//if ( is_admin() ) {
 			add_action( 'load-post.php',     array( $this, 'init_metabox' ) );
 			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
-		}
-
+		//}
 	}
 
 	/**
@@ -85,9 +84,11 @@ class Contributors_Custom_Meta_Box {
 		if ( wp_is_post_revision( $post_id ) ) {
 			return;
 		}
-		$custom = array();
-		$custom = $_POST['co-author'];
-		update_post_meta($post->ID, 'contributors-array', $custom);
+		else {
+		$contributors_arr = array();
+		$cuscontributors_arr = $_POST['co-author'];
+		update_post_meta($post->ID, 'contributors-array', $cuscontributors_arr);
+		}
 	}
 }
 new Contributors_Custom_Meta_Box();

@@ -4,7 +4,7 @@
  *
  * @package Wp_Contributors
  */
-require('vendor/autoload.php');
+require_once ('vendor/autoload.php');
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
 
